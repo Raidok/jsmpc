@@ -1,21 +1,24 @@
-Steps:
 
-1 Angulari install
-  võiks ka step-by-step siia panna
+# How to set up environment
 
-2 Kui grunt watch hangub a la
+1. Make sure you have Node.js and npm installed
+2. Enter the following commands:
 
-Running "karma:unit:run" (karma) task
-[2013-09-21 15:31:31.541] [DEBUG] config - Loading config /home/taavi/build/jsmpc/build/karma-unit.js
-[2013-09-21 15:31:31.542] [WARN] config - config.configure() is deprecated, please use config.set() instead.
-WARN [watcher]: Pattern "/home/taavi/build/jsmpc/src/**/*.coffee" does not match any file.
-Fatal error: socket hang up
+    git clone git@github.com:Raidok/jsmpc.git
+    cd jsmpc
+    sudo npm -g install grunt-cli karma bower
+    npm install
+    bower install
+    grunt watch
 
-vt thread: https://github.com/ngbp/ng-boilerplate/issues/37
 
-mul aitas: 
-    Open "grunt-karma.js", located here: /ng-boilerplate/node_modules/grunt-karma/tasks/grunt-karma.js
+# Troubleshooting
+
+If ¨grunt watch¨ hangs, try this:
+
+	  Open "grunt-karma.js", located in: node_modules/grunt-karma/tasks/grunt-karma.js
     Change background: false -> true. This was on or around line 20.
     Change background: var data = this.data; -> var data = {};. This was on or around line 22.
     Execute grunt watch and it succeeds.
 
+[Source](https://github.com/ngbp/ng-boilerplate/issues/37)
