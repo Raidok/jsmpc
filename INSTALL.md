@@ -14,9 +14,9 @@
 
 # Troubleshooting
 
-If ¨grunt watch¨ hangs, try this:
+If 'grunt watch' hangs, try this:
 
-	  Open "grunt-karma.js", located in: node_modules/grunt-karma/tasks/grunt-karma.js
+    Open "grunt-karma.js", located in: node_modules/grunt-karma/tasks/grunt-karma.js
     Change background: false -> true. This was on or around line 20.
     Change background: var data = this.data; -> var data = {};. This was on or around line 22.
     Execute grunt watch and it succeeds.
