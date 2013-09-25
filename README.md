@@ -1,0 +1,4 @@
+jsmpc
+=====
+
+JavaScript MPD client
