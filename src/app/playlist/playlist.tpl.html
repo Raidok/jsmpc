@@ -1,0 +1,16 @@
+<div class="btn-toolbar buttonbar">
+		<a class="btn" ng-click="dirUp()"><i class="icon-remove"></i> Remove all</a>
+		<a class="btn" ng-click="dirDown()"><i class="icon-chevron-right"></i> Shuffle</a>
+
+	<div class="btn-group">
+		<a class="btn" ng-click="addAll()"><i class="icon-reorder"></i></a>
+	</div>
+</div>
+
+<div id="list">
+	<ul class="list">
+		<li ng-repeat="(index, item) in items">
+			{{index + 1}}. {{item.file}} ({{item.type}})
+		</li>
+	</ul>
+</div>

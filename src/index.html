@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="jsmpc" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li ui-route="/control" ng-class="{active:$uiRoute}">
+                  <a href="#/control">
+                    <i class="icon-play"></i>
+                    Control
+                  </a>
+                </li>
+                <li ui-route="/playlist" ng-class="{active:$uiRoute}">
+                  <a href="#/playlist">
+                    <i class="icon-align-justify "></i>
+                    Playlist
+                  </a>
+                </li>
+                <li ui-route="/browse" ng-class="{active:$uiRoute}">
+                  <a href="#/browse">
+                    <i class="icon-folder-open"></i>
+                    Browse
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" ui-view="main"></div>
+
+  </body>
+</html>

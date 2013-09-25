@@ -1,0 +1,25 @@
+<div id="cover_image">
+  <img id="cover" title="{{album}}" src="{{albumart}}" />
+</div>
+
+<div class="progress">
+  <div class="bar" style="width: 60%;"></div>
+</div>
+
+<div id="tracktime">
+  <span id="currenttime">--:--</span>
+  <span id="totaltime">--:--</span>
+</div>
+
+<div class="btn-toolbar buttonbar">
+  <div class="btn-group controls">
+    <a class="btn" href="#" ng-click="previous()"><i class="icon-fast-backward"></i></a>
+    <a class="btn" href="#" ng-click="playpause()"><i class="{{{ true: 'icon-play', false: 'icon-pause'}[isPlaying]}}"></i></a>
+    <a class="btn" href="#" ng-click="stop()"><i class="icon-stop"></i></a>
+    <a class="btn" href="#" ng-click="next()"><i class="icon-fast-forward"></i></a>
+  </div>
+  <div class="btn-group btn-group-vertical">
+    <a class="btn" href="#"><i class="icon-volume-up"></i></a>
+    <a class="btn" href="#"><i class="icon-volume-down"></i></a>
+  </div>
+</div>

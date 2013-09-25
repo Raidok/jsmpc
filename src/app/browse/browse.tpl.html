@@ -1,0 +1,27 @@
+<div class="btn-toolbar buttonbar">
+	<div class="btn-group">
+		<a class="btn" ng-click="dirUp()"><i class="icon-chevron-left"></i></a>
+		<a class="btn" ng-click="dirDown()"><i class="icon-chevron-right"></i></a>
+	</div>
+
+	<div class="btn-group">
+		<a class="btn" ng-click="addAll()"><i class="icon-reorder"></i></a>
+	</div>
+</div>
+
+<ul class="breadcrumb">
+	<li><a>Artist</a> <span class="divider">/</span></li>
+	<li><a>Album</a> <span class="divider">/</span></li>
+	<li class="active">Dadada</li>
+</ul>
+
+<div id="list">
+	<ul class="list">
+		<li ng-repeat="(dindex, dir) in dirs">
+			{{dindex+1}}. {{dir}}
+		</li>
+	</ul>
+</div>
+
+
+
