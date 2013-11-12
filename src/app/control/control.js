@@ -1,6 +1,6 @@
 angular.module( 'jsmpc.control', [
   'ui.state',
-  'placeholders',
+//  'placeholders',
   'ui.bootstrap'
 ])
 

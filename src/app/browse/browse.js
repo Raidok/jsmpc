@@ -1,6 +1,6 @@
 angular.module( 'jsmpc.browse', [
   'ui.state',
-  'placeholders',
+//  'placeholders',
   'ui.bootstrap'
 ])
 

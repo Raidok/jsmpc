@@ -1,6 +1,6 @@
 angular.module( 'jsmpc.playlist', [
   'ui.state',
-  'placeholders',
+//  'placeholders',
   'ui.bootstrap'
 ])
 
