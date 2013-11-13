@@ -2,6 +2,33 @@ angular.module('services', [])
 .factory('Commands', ['$http', function( $http ) {
 
   var path = 'commands/';
+  
+  function growTree(node, branches, leaves) {
+    if (branches.length === 0) {
+      return growLeaves(node, leaves);
+    }
+    
+    var branch = branches.shift();
+    var child = node[branch];
+    if (!child) {
+      child = {};
+    }
+    
+    node[branch] = growTree(child, branches, leaves);
+    
+    return node;
+  }
+  
+  function growLeaves(node, leaves) {
+    if (leaves.length > 0) {
+      var index = leaves[0].lastIndexOf("/") + 1;
+      for (var i = leaves.length - 1, j = 0; i >= 0; i--, j++) {
+        node[i] = leaves[j].substring(index);
+      }
+      
+    }
+    return node;
+  }
 
   return {
     currentsong: function(callback) {
@@ -14,23 +41,23 @@ angular.module('services', [])
     listall: function(callback) {
       $http.get(path+'listall').success(function(data) {
           data = data.split("\n");
-          var dirs = [], files = [];
-          for (var i = data.length - 1, d = 0, f = 0; i > 0; i--) { // ignore first line
-            tmp = data[i].split(":");
-            if (tmp[0] == "file") {
-              files[f] = tmp[1];
-              f++;
-            } else if (tmp[0] == "directory") {
-              dirs[d] = {
-                name: tmp[1],
-                files: files
-              };
-              files = [];
-              f = 0;
-              d++;
+          var root = [], leaves = [];
+          for (var i = data.length - 2; i >= 0; i--) {
+            var tmp = data[i].split(": ");
+            var type = tmp[0];
+            var name = tmp[1];
+            if (type) {
+              if (type == "file") {
+                leaves.push(name);
+              } else if (type == "directory") {
+                console.log(name);
+                root = growTree(root, !name?name:name.split("/"), leaves);
+                leaves = [];
+              }
             }
           }
-          callback(dirs.reverse());
+          console.log(root);
+          callback(root);
         });
     },
     listallinfo: function(callback) {
